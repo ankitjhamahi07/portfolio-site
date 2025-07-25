@@ -2,11 +2,13 @@
 
 ## Overview
 
-This is a full-stack portfolio website built with a modern tech stack featuring a React frontend with TypeScript, an Express.js backend, and PostgreSQL database integration. The application serves as a professional portfolio for Ankit Kumar Jha, a Software Development Engineer III, showcasing his backend development expertise and projects.
+This is a modern, SEO-optimized portfolio website built for Ankit Kumar Jha, a Software Development Engineer III. The application features a responsive design with light/dark theme support, beautiful animations, and comprehensive sections showcasing backend development expertise. Built as a static website optimized for deployment on Netlify.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Design preferences: Dark theme with light mode toggle, creative JS developer elements, beautiful animations
+Content focus: Backend development, Node.js expertise, scalable systems
 
 ## System Architecture
 

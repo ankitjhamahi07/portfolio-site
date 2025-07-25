@@ -9,7 +9,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-[var(--dark-secondary)]/30">
+    <section id="contact" className="py-20 px-6 bg-muted/30">
       <div className="max-w-4xl mx-auto">
         <div 
           ref={ref} 
@@ -18,8 +18,8 @@ export default function Contact() {
           <h2 className="text-4xl font-bold text-center mb-16">Get In Touch</h2>
           
           <div className="text-center">
-            <div className="bg-[var(--dark-secondary)] rounded-xl p-12 max-w-2xl mx-auto">
-              <p className="text-lg text-[var(--text-gray)] mb-8 leading-relaxed">
+            <div className="bg-card rounded-xl p-12 max-w-2xl mx-auto border shadow-lg">
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 I'm always interested in discussing new opportunities, innovative projects, and backend architecture challenges. 
                 Let's connect and build something amazing together.
               </p>

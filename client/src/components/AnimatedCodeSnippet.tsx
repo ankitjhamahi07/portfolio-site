@@ -56,7 +56,7 @@ export default function AnimatedCodeSnippet() {
   }, [currentIndex]);
 
   return (
-    <div className="animate-slide-up bg-[var(--dark-secondary)] rounded-lg p-6 max-w-2xl mx-auto mb-12 text-left">
+    <div className="animate-slide-up bg-card border rounded-lg p-6 max-w-2xl mx-auto mb-12 text-left shadow-lg">
       <div className="flex items-center mb-4">
         <div className="flex space-x-2">
           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -67,8 +67,8 @@ export default function AnimatedCodeSnippet() {
       <div className="font-mono text-sm">
         <span className="text-[var(--syntax-pink)]">const</span>{" "}
         <span className="text-[var(--syntax-yellow)] ml-2">{currentVariable}</span>{" "}
-        <span className="text-white ml-2">=</span>
-        <span className="text-white ml-2">
+        <span className="text-foreground ml-2">=</span>
+        <span className="text-foreground ml-2">
           {currentVariable === "expertise" || currentVariable === "projects" ? "[" : ""}
         </span>
         <div className="ml-4 min-h-[24px]">
@@ -77,7 +77,7 @@ export default function AnimatedCodeSnippet() {
           </span>
           <span className="animate-pulse text-primary">|</span>
         </div>
-        <span className="text-white">
+        <span className="text-foreground">
           {currentVariable === "expertise" || currentVariable === "projects" ? "];" : ";"}
         </span>
       </div>

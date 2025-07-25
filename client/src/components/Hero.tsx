@@ -21,16 +21,16 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20 relative z-10">
       <div className="text-center max-w-4xl mx-auto">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
             Ankit Kumar Jha
           </h1>
-          <h2 className="text-xl md:text-2xl text-[var(--text-muted)] mb-8">
+          <h2 className="text-xl md:text-2xl text-muted-foreground mb-8">
             Software Development Engineer III
           </h2>
-          <p className="text-lg text-[var(--text-muted)] mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             Backend Systems • Node.js • Microservices • Scalable Architecture
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function Hero() {
         <AnimatedCodeSnippet />
 
         {/* Contact Info */}
-        <div className="flex flex-wrap justify-center items-center gap-6 text-[var(--text-muted)] mb-8">
+        <div className="flex flex-wrap justify-center items-center gap-6 text-muted-foreground mb-8">
           <div className="flex items-center gap-2">
             <MapPin size={16} />
             <span>Bengaluru, India</span>
@@ -61,7 +61,7 @@ export default function Hero() {
           <Button 
             variant="outline" 
             onClick={handleResumeDownload}
-            className="border-gray-600 hover:border-primary px-8 py-3 flex items-center gap-2"
+            className="border-border hover:border-primary px-8 py-3 flex items-center gap-2"
           >
             <Download size={16} />
             Resume
