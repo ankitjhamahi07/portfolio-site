@@ -1,26 +1,59 @@
 import { useEffect, useState } from "react";
 
 export default function AnimatedCodeSnippet() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "'Node.js', 'Express.js', 'MongoDB', 'Redis', 'WebSockets'";
+  const [currentVariable, setCurrentVariable] = useState("");
+  
+  const codeSnippets = [
+    {
+      variable: "name",
+      value: "'Ankit Kumar Jha'",
+      color: "text-[var(--syntax-green)]"
+    },
+    {
+      variable: "expertise", 
+      value: "['Node.js', 'Express.js', 'MongoDB', 'Redis', 'WebSockets']",
+      color: "text-[var(--syntax-green)]"
+    },
+    {
+      variable: "projects",
+      value: "['Certificate Automation', 'Feedback Service', 'Auth Systems']",
+      color: "text-[var(--syntax-green)]"
+    },
+    {
+      variable: "experience",
+      value: "'4+ years building scalable backend systems'",
+      color: "text-[var(--syntax-green)]"
+    }
+  ];
 
   useEffect(() => {
+    const currentSnippet = codeSnippets[currentIndex];
+    
     const timer = setTimeout(() => {
-      let index = 0;
+      let charIndex = 0;
+      setCurrentVariable(currentSnippet.variable);
+      setDisplayedText("");
+      
       const typeEffect = setInterval(() => {
-        if (index <= fullText.length) {
-          setDisplayedText(fullText.slice(0, index));
-          index++;
+        if (charIndex <= currentSnippet.value.length) {
+          setDisplayedText(currentSnippet.value.slice(0, charIndex));
+          charIndex++;
         } else {
           clearInterval(typeEffect);
+          // Wait 2 seconds before starting next snippet
+          setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % codeSnippets.length);
+          }, 2000);
         }
       }, 50);
 
       return () => clearInterval(typeEffect);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentIndex]);
 
   return (
     <div className="animate-slide-up bg-[var(--dark-secondary)] rounded-lg p-6 max-w-2xl mx-auto mb-12 text-left">
@@ -33,16 +66,20 @@ export default function AnimatedCodeSnippet() {
       </div>
       <div className="font-mono text-sm">
         <span className="text-[var(--syntax-pink)]">const</span>{" "}
-        <span className="text-[var(--syntax-yellow)] ml-2">expertise</span>{" "}
+        <span className="text-[var(--syntax-yellow)] ml-2">{currentVariable}</span>{" "}
         <span className="text-white ml-2">=</span>
-        <span className="text-white ml-2">[</span>
+        <span className="text-white ml-2">
+          {currentVariable === "expertise" || currentVariable === "projects" ? "[" : ""}
+        </span>
         <div className="ml-4 min-h-[24px]">
           <span className="text-[var(--syntax-green)]">
             {displayedText}
           </span>
           <span className="animate-pulse text-primary">|</span>
         </div>
-        <span className="text-white">];</span>
+        <span className="text-white">
+          {currentVariable === "expertise" || currentVariable === "projects" ? "];" : ";"}
+        </span>
       </div>
     </div>
   );
