@@ -26,9 +26,14 @@ export function ThemeProvider({
   storageKey = "portfolio-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem(storageKey) as Theme;
+      return stored || defaultTheme;
+    }
+    return defaultTheme;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -47,6 +52,16 @@ export function ThemeProvider({
 
     root.classList.add(theme);
   }, [theme]);
+
+  // Ensure dark mode is set on initial load
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const root = window.document.documentElement;
+      if (!root.classList.contains('light') && !root.classList.contains('dark')) {
+        root.classList.add('dark');
+      }
+    }
+  }, []);
 
   const value = {
     theme,

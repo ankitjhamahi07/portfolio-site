@@ -4,14 +4,70 @@ export default function TechStack() {
   const { ref, isVisible } = useScrollAnimation();
 
   const technologies = [
-    { name: "JavaScript", icon: "⚡", level: 95 },
-    { name: "Node.js", icon: "🟢", level: 98 },
-    { name: "Express.js", icon: "🚂", level: 96 },
-    { name: "MongoDB", icon: "🍃", level: 92 },
-    { name: "Redis", icon: "🔴", level: 88 },
-    { name: "PostgreSQL", icon: "🐘", level: 85 },
-    { name: "Docker", icon: "🐳", level: 80 },
-    { name: "AWS", icon: "☁️", level: 82 }
+    { 
+      name: "JavaScript/TypeScript", 
+      icon: "⚡", 
+      proficiency: "Expert",
+      description: "5+ years building scalable applications",
+      barWidth: "95%",
+      color: "bg-yellow-500"
+    },
+    { 
+      name: "Node.js", 
+      icon: "🟢", 
+      proficiency: "Expert",
+      description: "Core backend technology, microservices",
+      barWidth: "98%",
+      color: "bg-green-500"
+    },
+    { 
+      name: "Express.js", 
+      icon: "🚂", 
+      proficiency: "Expert",
+      description: "RESTful APIs, middleware architecture",
+      barWidth: "96%",
+      color: "bg-blue-500"
+    },
+    { 
+      name: "MongoDB", 
+      icon: "🍃", 
+      proficiency: "Advanced",
+      description: "Schema design, indexing strategies",
+      barWidth: "92%",
+      color: "bg-green-600"
+    },
+    { 
+      name: "Redis", 
+      icon: "🔴", 
+      proficiency: "Advanced",
+      description: "Caching, session management",
+      barWidth: "88%",
+      color: "bg-red-500"
+    },
+    { 
+      name: "PostgreSQL", 
+      icon: "🐘", 
+      proficiency: "Intermediate",
+      description: "Relational database operations",
+      barWidth: "85%",
+      color: "bg-blue-600"
+    },
+    { 
+      name: "Docker", 
+      icon: "🐳", 
+      proficiency: "Intermediate",
+      description: "Containerization, deployment",
+      barWidth: "80%",
+      color: "bg-blue-400"
+    },
+    { 
+      name: "AWS/Cloud", 
+      icon: "☁️", 
+      proficiency: "Intermediate",
+      description: "Cloud infrastructure, deployments",
+      barWidth: "82%",
+      color: "bg-orange-500"
+    }
   ];
 
   return (
@@ -27,42 +83,36 @@ export default function TechStack() {
             {technologies.map((tech, index) => (
               <div 
                 key={tech.name} 
-                className="bg-background/50 dark:bg-[var(--dark-secondary)] rounded-xl p-6 hover:scale-105 transition-all duration-300"
+                className="bg-card border rounded-xl p-6 hover:scale-105 hover:shadow-lg transition-all duration-300 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="text-center">
-                  <div className="text-4xl mb-4">{tech.icon}</div>
-                  <h3 className="font-semibold mb-3">{tech.name}</h3>
-                  
-                  {/* Circular Progress */}
-                  <div className="relative w-20 h-20 mx-auto mb-2">
-                    <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 100 100">
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="40"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="none"
-                        className="text-muted-foreground opacity-20"
-                      />
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="40"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="none"
-                        strokeDasharray={`${2 * Math.PI * 40}`}
-                        strokeDashoffset={`${2 * Math.PI * 40 * (1 - tech.level / 100)}`}
-                        className="text-primary transition-all duration-1000 ease-out"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm font-bold">{tech.level}%</span>
-                    </div>
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {tech.icon}
                   </div>
+                  <h3 className="font-semibold mb-2 text-foreground">{tech.name}</h3>
+                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
+                    tech.proficiency === 'Expert' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                    tech.proficiency === 'Advanced' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                    'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                  }`}>
+                    {tech.proficiency}
+                  </div>
+                  
+                  {/* Progress Bar */}
+                  <div className="w-full bg-muted rounded-full h-2 mb-3">
+                    <div 
+                      className={`h-2 rounded-full transition-all duration-1000 ease-out ${tech.color}`}
+                      style={{ 
+                        width: isVisible ? tech.barWidth : '0%',
+                        transitionDelay: `${index * 200}ms`
+                      }}
+                    ></div>
+                  </div>
+                  
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {tech.description}
+                  </p>
                 </div>
               </div>
             ))}
