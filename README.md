@@ -4,10 +4,19 @@ A modern, responsive portfolio website showcasing my journey as a Software Devel
 
 ## 🚀 Quick Start
 
-1. Clone the repository
+### For Local Development (Downloaded ZIP)
+
+1. Extract the ZIP file and navigate to the project directory
 2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Build for production: `npm run build`
+3. Start development server: `node dev-local.js`
+4. Open `http://localhost:5000` in your browser
+5. Build for production: `node build-local.js`
+
+### For Replit Development
+
+1. Install dependencies: `npm install`
+2. Start development server: `npm run dev`
+3. Build for production: `npm run build`
 
 ## 🌟 Features
 

@@ -28,6 +28,10 @@ This portfolio is now ready for deployment to Netlify as a static website. Follo
 
 1. **Build the project**:
    ```bash
+   # For local development
+   npm run build:local
+   
+   # Or for Replit
    npm run build
    ```
 
