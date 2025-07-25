@@ -91,7 +91,7 @@ Tech proficiency: Use graphs/icons instead of percentages, show skill levels vis
 - **TypeScript**: Full type safety across the stack
 - **Vite**: Development server and build tool with React plugin
 - **ESBuild**: Fast server bundling for production
-- **Development Enhancements**: Replit-specific plugins for error handling and debugging
+- **Development Enhancements**: specific plugins for error handling and debugging
 
 ### Utility Libraries
 - **Form Handling**: React Hook Form with Hookform resolvers

@@ -12,12 +12,6 @@ A modern, responsive portfolio website showcasing my journey as a Software Devel
 4. Open `http://localhost:5000` in your browser
 5. Build for production: `node build-local.js`
 
-### For Replit Development
-
-1. Install dependencies: `npm install`
-2. Start development server: `npm run dev`
-3. Build for production: `npm run build`
-
 ## 🌟 Features
 
 - **Dark/Light Theme Toggle** - Optimized for both themes with smooth transitions
