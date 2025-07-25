@@ -2,10 +2,14 @@
 
 ## Overview
 
-This is a modern, SEO-optimized portfolio website built for Ankit Kumar Jha, a Software Development Engineer III. The application features a responsive design with dark theme as default (with light mode toggle), beautiful animations, and comprehensive sections showcasing backend development expertise. Includes complete career journey from intern to SDE-3 at NineLeaps and enhanced tech proficiency section with animated progress bars instead of percentages. Built as a static website optimized for deployment on Netlify.
+This is a modern, SEO-optimized static portfolio website built for Ankit Kumar Jha, a Software Development Engineer III. The application features a responsive design with dark theme as default (with light mode toggle), beautiful animations, and comprehensive sections showcasing backend development expertise. Includes complete career journey from intern to SDE-3 at NineLeaps and enhanced tech proficiency section with animated progress bars instead of percentages. Built as a pure frontend React application optimized for Git deployment to Netlify.
 
 ## Recent Changes
 
+✓ Converted to static website - removed backend dependencies for Netlify deployment
+✓ Added netlify.toml configuration for proper build and deployment settings
+✓ Created comprehensive README.md with deployment instructions
+✓ Removed server-side components and made app purely client-side
 ✓ Updated career progression to show complete journey: Intern → MTS-II → SDE-1 → SDE-3 (2019-Present)
 ✓ Enhanced tech proficiency section with animated progress bars, skill levels, and descriptions
 ✓ Set dark theme as default loading theme with proper initialization
